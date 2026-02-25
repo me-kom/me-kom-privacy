@@ -3,124 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>מחיקת חשבון – מי-קום</title>
+  <title>מחיקת חשבון – מי-קום (Me-Kom)</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-      background: #f9f9f9;
-      color: #222;
-      line-height: 1.7;
-      direction: rtl;
-    }
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 40px 32px;
-      min-height: 100vh;
-    }
-    h1 { font-size: 1.6rem; margin-bottom: 8px; color: #1a1a2e; }
-    .subtitle { color: #666; font-size: 0.9rem; margin-bottom: 32px; }
-    .info-box {
-      background: #FFF7ED;
-      border: 1px solid #FED7AA;
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 24px;
-      font-size: 0.95rem;
-    }
-    .steps { margin-bottom: 28px; }
-    .steps h2 { font-size: 1.1rem; margin-bottom: 12px; color: #1a1a2e; }
-    .step {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 12px;
-      flex-direction: row-reverse;
-    }
-    .step-num {
-      background: #1E40AF;
-      color: #fff;
-      border-radius: 50%;
-      width: 28px;
-      height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      font-weight: bold;
-      flex-shrink: 0;
-    }
-    .step-text { flex: 1; padding-top: 3px; }
-    .divider { border: none; border-top: 1px solid #e8e8e8; margin: 28px 0; }
-    .email-section h2 { font-size: 1.1rem; margin-bottom: 10px; color: #1a1a2e; }
-    .email-section p { margin-bottom: 12px; font-size: 0.95rem; }
-    a { color: #1E40AF; }
-    .warning {
-      background: #FEF2F2;
-      border: 1px solid #FECACA;
-      border-radius: 8px;
-      padding: 14px;
-      margin-bottom: 24px;
-      font-size: 0.9rem;
-      color: #7F1D1D;
-    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; background: #f9f9f9; color: #222; line-height: 1.7; direction: rtl; }
+    .container { max-width: 640px; margin: 0 auto; background: #fff; padding: 40px 32px; min-height: 100vh; }
+    h1 { font-size: 1.6rem; margin-bottom: 6px; color: #1a1a2e; }
+    .app-name { font-size: 1rem; color: #1E40AF; font-weight: 600; margin-bottom: 4px; }
+    .subtitle { color: #666; font-size: 0.88rem; margin-bottom: 28px; }
+    h2 { font-size: 1.05rem; font-weight: 700; margin: 28px 0 12px; color: #1a1a2e; border-right: 3px solid #1E40AF; padding-right: 10px; }
+    p { margin-bottom: 12px; font-size: 0.95rem; }
+    .warning { background: #FEF2F2; border: 1px solid #FECACA; border-radius: 8px; padding: 14px 16px; margin-bottom: 24px; font-size: 0.9rem; color: #7F1D1D; }
+    .steps-box { background: #F0F7FF; border: 1px solid #BFDBFE; border-radius: 8px; padding: 18px 20px; margin-bottom: 24px; }
+    .steps-box h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 14px; color: #1E3A8A; }
+    .step { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; flex-direction: row-reverse; }
+    .step-num { background: #1E40AF; color: #fff; border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: bold; flex-shrink: 0; margin-top: 2px; }
+    .step-text { flex: 1; font-size: 0.93rem; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 0.9rem; }
+    th { background: #F1F5F9; padding: 10px 12px; text-align: right; font-weight: 600; color: #374151; border: 1px solid #E2E8F0; }
+    td { padding: 10px 12px; border: 1px solid #E2E8F0; vertical-align: top; }
+    tr:nth-child(even) td { background: #F8FAFC; }
+    .badge-del { color: #991B1B; font-weight: 600; }
+    .badge-keep { color: #065F46; font-weight: 600; }
+    .email-box { background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 8px; padding: 16px 18px; margin-bottom: 24px; font-size: 0.93rem; }
+    .partial-box { background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 16px 18px; margin-bottom: 24px; font-size: 0.93rem; }
+    .partial-box ul { padding-right: 18px; margin-top: 8px; }
+    .partial-box li { margin-bottom: 5px; }
     footer { margin-top: 40px; font-size: 0.8rem; color: #aaa; border-top: 1px solid #eee; padding-top: 16px; }
+    a { color: #1E40AF; }
     @media (max-width: 600px) { .container { padding: 24px 16px; } }
   </style>
 </head>
 <body>
 <div class="container">
-
-  <h1>מחיקת חשבון</h1>
-  <p class="subtitle">מי-קום (Me-Kom)</p>
-
-  <div class="warning">
-    ⚠️ מחיקת החשבון היא פעולה בלתי הפיכה. כל המיקומים, המסלולים והנתונים שלך יימחקו לצמיתות.
+  <p class="app-name">מי-קום (Me-Kom)</p>
+  <h1>מחיקת חשבון ונתונים</h1>
+  <p class="subtitle">עמוד זה מסביר כיצד לבקש מחיקת חשבון ואילו נתונים יימחקו.</p>
+  <div class="warning">⚠️ <strong>שים לב:</strong> מחיקת החשבון היא פעולה בלתי הפיכה. לאחר האישור לא ניתן לשחזר את הנתונים.</div>
+  <h2>שלבים למחיקת חשבון מתוך האפליקציה</h2>
+  <div class="steps-box">
+    <h3>⬇ בצע את השלבים הבאים:</h3>
+    <div class="step"><div class="step-num">1</div><div class="step-text">פתח את אפליקציית <strong>מי-קום</strong> והיכנס לחשבון שלך</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text">לחץ על טאב <strong>הגדרות</strong> (סמל גלגל השיניים בתחתית המסך)</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text">גלול למטה לקטע <strong>ניהול נתונים</strong></div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-text">לחץ על <strong>מחיקת חשבון לצמיתות</strong></div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-text">אשר את הפעולה בחלון הדו-שיח שיופיע</div></div>
   </div>
-
-  <div class="steps">
-    <h2>מחיקה מתוך האפליקציה (מומלץ)</h2>
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-text">פתח את האפליקציה והיכנס לחשבון שלך</div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-text">עבור לטאב <strong>הגדרות</strong></div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-text">גלול למטה לקטע <strong>ניהול נתונים</strong></div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-text">לחץ על <strong>מחיקת חשבון לצמיתות</strong> ואשר את הפעולה</div>
-    </div>
+  <h2>מחיקה באמצעות אימייל</h2>
+  <div class="email-box">
+    אם אינך יכול להשתמש באפליקציה, שלח אימייל לכתובת:<br /><br />
+    <strong><a href="mailto:hillelkro@gmail.com?subject=בקשת מחיקת חשבון - מי-קום">hillelkro@gmail.com</a></strong><br /><br />
+    ציין בגוף המייל את כתובת האימייל הרשומה בחשבון. נטפל בבקשה תוך <strong>7 ימי עסקים</strong>.
   </div>
-
-  <hr class="divider" />
-
-  <div class="email-section">
-    <h2>בקשת מחיקה באמצעות אימייל</h2>
-    <p>אם אין באפשרותך להשתמש באפליקציה, שלח אימייל לכתובת:</p>
-    <p><strong><a href="mailto:hillelkro@gmail.com?subject=בקשת מחיקת חשבון&body=שלום, אני מבקש למחוק את חשבוני באפליקציה מי-קום. כתובת האימייל הרשומה: ">hillelkro@gmail.com</a></strong></p>
-    <p>בגוף המייל ציין את כתובת האימייל הרשומה בחשבון. נטפל בבקשה תוך 7 ימי עסקים.</p>
+  <h2>אילו נתונים נמחקים ואילו נשמרים</h2>
+  <table>
+    <thead><tr><th>סוג נתון</th><th>מה קורה לאחר מחיקה</th><th>תקופת שמירה</th></tr></thead>
+    <tbody>
+      <tr><td>מיקומים שמורים</td><td><span class="badge-del">נמחק לצמיתות</span></td><td>מיידי</td></tr>
+      <tr><td>מסלולים שמורים</td><td><span class="badge-del">נמחק לצמיתות</span></td><td>מיידי</td></tr>
+      <tr><td>פרטי הרשמה (אימייל)</td><td><span class="badge-del">נמחק לצמיתות</span></td><td>מיידי</td></tr>
+      <tr><td>הגדרות אישיות</td><td><span class="badge-del">נמחק לצמיתות</span></td><td>מיידי</td></tr>
+      <tr><td>לוגי שגיאות אנונימיים</td><td><span class="badge-keep">נשמר זמנית</span> (ללא מזהה אישי)</td><td>עד 90 יום</td></tr>
+    </tbody>
+  </table>
+  <h2>מחיקת נתונים בלי למחוק את החשבון</h2>
+  <div class="partial-box">
+    ✅ ניתן למחוק נתונים ספציפיים <strong>מבלי למחוק את החשבון</strong> דרך הגדרות ← ניהול נתונים:
+    <ul>
+      <li>מחק את כל המיקומים השמורים</li>
+      <li>מחק את כל המסלולים השמורים</li>
+      <li>מחק את כל הנתונים (מיקומים + מסלולים)</li>
+    </ul>
   </div>
-
-  <div class="info-box">
-    <strong>מה נמחק:</strong><br />
-    כל המיקומים השמורים, מסלולים, הגדרות, ופרטי ההרשמה שלך.
-    <br /><br />
-    <strong>מה נשמר:</strong><br />
-    לוגים אנונימיים (ללא מזהה אישי) עד 90 יום, כנדרש לצורכי אבטחה.
-  </div>
-
   <footer>
-    <p>מי-קום (Me-Kom) &nbsp;·&nbsp; <a href="index.html">מדיניות פרטיות</a></p>
+    <p>מי-קום (Me-Kom) &nbsp;·&nbsp; <a href="index.html">מדיניות פרטיות</a> &nbsp;·&nbsp; עודכן: פברואר 2026</p>
   </footer>
-
 </div>
 </body>
 </html>
